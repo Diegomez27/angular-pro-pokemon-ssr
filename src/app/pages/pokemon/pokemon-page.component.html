@@ -1,0 +1,21 @@
+<h1 class="text-3xl">Listado de Pokémon</h1>
+<h2 clas="text-xl">Página Actual: {{currentPage()}}</h2>
+
+<hr class="my-2" />
+
+
+@if(pokemon()){
+<pokemon-list [pokemon]="pokemon()"/>
+} @else {
+  <pokemon-list-skeleton />
+}
+
+<div class="flex justify-between">
+  <button (click)="loadPokemon(-1)"class="mt-2 bg-blue-900">
+    Anteriores
+  </button>
+
+  <button (click)="loadPokemon(+1)"class="mt-2 bg-blue-900">
+    Siguientes
+  </button>
+</div>
