@@ -5,17 +5,18 @@
 
 
 @if(pokemon()){
-<pokemon-list [pokemon]="pokemon()"/>
+<pokemon-list [pokemon]="pokemon()" />
 } @else {
-  <pokemon-list-skeleton />
+<pokemon-list-skeleton />
 }
 
 <div class="flex justify-between">
-  <button (click)="loadPokemon(-1)"class="mt-2 bg-blue-900">
+  <button [disabled]="currentPage() === 1" [routerLink]="['/pokemon/page', currentPage()! - 1]"
+    class="mt-2 bg-blue-900">
     Anteriores
   </button>
 
-  <button (click)="loadPokemon(+1)"class="mt-2 bg-blue-900">
+  <button [routerLink]="['/pokemon/page', currentPage()! + 1]" class="mt-2 bg-blue-900">
     Siguientes
   </button>
 </div>
